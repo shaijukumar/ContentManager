@@ -1,0 +1,129 @@
+import * as React from "react";
+import Table from 'react-bootstrap/Table'
+
+import styles from "../ContentManager.module.scss";
+
+import { escape } from "@microsoft/sp-lodash-subset";
+import pnp from "sp-pnp-js";
+import { ClassCustomer } from "./Customer";
+import { ISPListCustomerItem } from "./Customer";
+
+import { IGetlistitemsReactProps } from "../IGetlistitemsReactProps";
+
+export default class GetlistitemsReact extends React.Component<
+  IGetlistitemsReactProps,
+  any
+> {
+  NameSearchRef;
+  
+  public constructor(props: IGetlistitemsReactProps, any) {
+    super(props)
+
+    this.NameSearchRef = React.createRef()
+
+    this.state = {
+      NameSearch:'',
+      items: []
+    };
+  }
+
+  handleNameSearchChange = event => {
+		    
+    this._getListCustomerData();
+	}
+ 
+  public render(): React.ReactElement<IGetlistitemsReactProps> {
+    return (
+
+      <div className={styles.contentManager}>        
+        <div className={styles.container}>
+
+        <div>
+					<label>Name </label>
+					<input
+						type="text"
+						ref={this.NameSearchRef}
+						onChange={this.handleNameSearchChange}
+					/>
+				</div>
+
+          <table >
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+              </tr>
+            </thead>
+            <tbody>
+                           
+                {
+                  this.state.items.map(function(item: ISPListCustomerItem) {
+                      return (
+                        <tr>   
+                          <td> {item.Title}</td>
+                          <td> {item.FirstName}</td>
+                          <td> {item.LastName}</td>
+                        </tr>
+                      );
+                    })
+                }
+              
+            </tbody>
+          </table>                   
+        </div>
+      </div>
+
+      
+    );
+  }
+  public componentDidMount() {
+    debugger;
+    this._getListCustomerData();
+  }
+
+  private _getListCustomerData(): void {
+debugger;
+    let search: string = this.NameSearchRef.current.value;
+
+    if(search){
+      const xml = `<View>
+                      <ViewFields><FieldRef Name='Title' /><FieldRef Name='FirstName' /><FieldRef Name='LastName' /></ViewFields>
+                      <Query>
+                        <OrderBy><FieldRef Name='Title' /></OrderBy>
+                        <Where>
+                         <Contains><FieldRef Name='FirstName'/><Value Type='Text'>${search}</Value></Contains>
+                        </Where>
+                      </Query>
+                      <RowLimit>20</RowLimit>
+                  </View>`
+   
+    var camlQuery={ 
+      ViewXml: xml 
+  };   
+
+  pnp.sp.web.lists.getByTitle("Customer").getItemsByCAMLQuery( camlQuery )
+  .then( response => {
+    let customerCollection = response.map(item => new ClassCustomer(item));
+    this.setState({ items: customerCollection });
+  });
+    }
+    else{
+      pnp.sp.web.lists
+      .getByTitle(`Customer`)
+      .items.get()
+      .then( response => {
+        let customerCollection = response.map(item => new ClassCustomer(item));
+        this.setState({ items: customerCollection });
+      });
+
+    }
+    
+ /*
+   
+      */
+  }
+  
+
+
+}
