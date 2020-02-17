@@ -5,6 +5,31 @@ git commit -m "first commit"
 git remote add origin https://github.com/shaijukumar/ContentManager.git
 git push -u origin master
 
+==============
 
 https://github.com/harshdamaniahd/SPFX-React
 https://www.youtube.com/watch?v=4nsGhYjfRsw
+
+
+=================
+Push changes in git
+===================
+Git add . 
+git commit -m "Change"
+git push origin master
+
+================
+get latest
+============
+geit pull origin master
+
+To Clone
+=========
+1. Ctrl+Shift+P to show the Command Palette.
+2. Execute the Git: Clone command. 
+3. Paste in the URL to your repo and press Enter. - https://github.com/shaijukumar/ReactSample
+
+
+Class component => rce 
+Functional component  => rfce  
+Constructor => rconst 
