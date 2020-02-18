@@ -33,3 +33,6 @@ To Clone
 Class component => rce 
 Functional component  => rfce  
 Constructor => rconst 
+
+==============
+https://react-slick.neostack.com/

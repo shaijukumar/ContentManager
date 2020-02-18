@@ -6,6 +6,8 @@ import { escape } from "@microsoft/sp-lodash-subset";
 import { IGetlistitemsReactProps } from "./IGetlistitemsReactProps";
 import GetlistitemsReact from "./Customer/GetlistitemsReact";
 
+import NewsHomePage from "./News/NewsHomePage";
+
 export default class ContentManager extends React.Component<
   IContentManagerProps,
   {}
@@ -14,7 +16,7 @@ export default class ContentManager extends React.Component<
     return (
       <div className={styles.contentManager}>
         <div>
-          <GetlistitemsReact description="123"></GetlistitemsReact>
+          <NewsHomePage description="123"></NewsHomePage>
         </div>
       </div>
     );
