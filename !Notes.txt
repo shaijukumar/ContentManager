@@ -21,7 +21,10 @@ git push origin master
 ================
 get latest
 ============
-geit pull origin master
+git pull origin master
+
+git latest overwrite local:
+git reset --hard origin/master
 
 To Clone
 =========
