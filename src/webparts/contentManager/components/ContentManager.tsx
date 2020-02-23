@@ -7,6 +7,7 @@ import { IGetlistitemsReactProps } from "./IGetlistitemsReactProps";
 import GetlistitemsReact from "./Customer/GetlistitemsReact";
 
 import NewsHomePage from "./News/NewsHomePage";
+import HomePageWelcome from "./Welcome/HomePageWelcome";
 
 export default class ContentManager extends React.Component<
   IContentManagerProps,
@@ -14,11 +15,10 @@ export default class ContentManager extends React.Component<
 > {
   public render(): React.ReactElement<IContentManagerProps> {
     return (
-      <div className={styles.contentManager}>
-        <div>
-          <NewsHomePage description="123"></NewsHomePage>
-        </div>
-      </div>
+      <section>
+        <HomePageWelcome description="Home page news"></HomePageWelcome>
+        <NewsHomePage description="Home page news"></NewsHomePage>
+      </section> 
     );
   }
 }

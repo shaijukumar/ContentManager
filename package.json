@@ -24,6 +24,8 @@
     "office-ui-fabric-react": "6.189.2",
     "react": "16.8.5",
     "react-dom": "16.8.5",
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1",
     "sp-pnp-js": "^3.0.10"
   },
   "resolutions": {

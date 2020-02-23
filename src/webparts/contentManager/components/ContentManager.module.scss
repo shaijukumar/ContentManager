@@ -1,6 +1,15 @@
 @import "~office-ui-fabric-react/dist/sass/References.scss";
 
 .contentManager {
+
+  .containerABC {
+    width: 96%;
+    max-width: 1170px;
+    margin-top: 20px;
+    background-color: #d7b672;
+    color: red;
+  }
+  
   .container {
     max-width: 700px;
     margin: 0px auto;

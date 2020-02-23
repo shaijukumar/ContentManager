@@ -1,0 +1,17 @@
+
+
+ .welcomeWrapper {
+  background-color: #d7b672;
+  padding: 12px;
+  border-radius: 2px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  /*padding-bottom:10px;
+  border-bottom: 1px solid rgba(201, 158, 60, 0.9);*/
+}
+
+
+.testcr{
+  width: 800px;
+  background-color: gray;
+}

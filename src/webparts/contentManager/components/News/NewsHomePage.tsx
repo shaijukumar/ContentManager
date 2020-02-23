@@ -2,6 +2,14 @@ import * as React from "react";
 import styles from "../ContentManager.module.scss";
 import pnp from "sp-pnp-js";
 
+import Slider from "react-slick";
+//import "slick-carousel\slick\slick.scss"; 
+//import "slick-carousel\slick\slick-theme.less";
+
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { IGetlistitemsReactProps } from "../IGetlistitemsReactProps";
 
 import { INews } from "./INews";
@@ -17,6 +25,8 @@ export default class GetlistitemsReact extends React.Component<
     this.state = {
       newsList: []
     };
+
+    
   }
 
   public componentDidMount() {
@@ -26,23 +36,49 @@ export default class GetlistitemsReact extends React.Component<
       console.log(res);
     });
   }
-
+ 
   public render(): React.ReactElement<IGetlistitemsReactProps> {
+
+
+ 
+
+
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+ 
     return (
-      <div>
-        <h3>News</h3>
-        {this.state.newsList.map(function(item: INews) {
-          return (
-            <div className={"ms-Grid-col ms-sm6 ms-md6 ms-lg4"}>
-              <div className={styles.contentDiv}>
-                <label className="ms-Label">{item.Title}</label>
-                <br />
-                <label className="ms-Label">{item.ShortDescription}</label>
-              </div>
-            </div>
-          );
-        })}
+
+      <div className="testcr">
+        <h2> Single Item</h2>
+        <Slider {...settings}>
+          <div>
+            <h3>Shaiju Test 123</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+          <div>
+            <h3>5</h3>
+          </div>
+          <div>
+            <h3>6</h3>
+          </div>
+        </Slider>
       </div>
+      
+
+
     );
   }
 }
