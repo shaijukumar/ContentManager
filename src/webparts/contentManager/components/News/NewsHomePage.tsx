@@ -48,9 +48,12 @@ export default class GetlistitemsReact extends React.Component<
  
     return (
 
+      <div>
+
+
       <div className="announcements">
         <div className="well" >Basic Well</div>
-        <button type="button" className="btn btn-danger">Danger</button>
+      
 
         <h2> Single Item</h2>
         <Slider {...settings}>
@@ -74,10 +77,13 @@ export default class GetlistitemsReact extends React.Component<
           </div>
         </Slider>
 
-table1
-        <br/> <br/> <br/> <br/>
-        table2
-        <table className="table">
+
+      </div>
+
+      <div>
+        
+        
+      <table className="table">
           <thead>
             <tr>
               <th>Firstname</th>
@@ -86,13 +92,19 @@ table1
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Default</td>
+            <tr  className="danger">
+              <td>  <button type="button" className="btn btn-danger">Danger 123</button></td>
               <td>Defaultson</td>
               <td>def@somemail.com</td>
             </tr>      
             <tr className="success">
-              <td>Success</td>
+              <td>
+              <button type="button" className="btn btn-labeled btn-success">
+                <span className="btn-label">
+                  success1<i className="glyphicon glyphicon-earphone">3</i> 2
+                </span>
+              </button>
+              </td>
               <td>Doe</td>
               <td>john@example.com</td>
             </tr>
@@ -118,9 +130,10 @@ table1
             </tr>
           </tbody>
           </table>
+      
       </div>
       
-
+      </div>
 
     );
   }
