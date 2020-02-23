@@ -15,3 +15,25 @@
   width: 800px;
   background-color: gray;
 }
+
+.announcements {
+  height: 150px !important;
+  overflow: hidden;
+  border-bottom: 1px solid #d9d9d9;
+	background-color: transparent;
+  width: 800px;
+}
+
+
+.card {
+	border-bottom: 1px solid #d9d9d9;
+	background-color: transparent;
+}
+
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+ /* background-image: url("../Images/sprite-icons.svg");*/
+  height: 33px;
+  width: 32px;
+}
